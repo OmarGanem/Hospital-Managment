@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Hospital.Data.Entities.Patient>
+
+@{
+    ViewData["Title"] = "Índice de Pacientes";
+}
+
+<h1>Índice de Pacientes</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Crear Nuevo</a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.FirstNameP)</th>
+            <th>@Html.DisplayNameFor(model => model.LastNameP)</th>
+            <th>@Html.DisplayNameFor(model => model.DateOfBirth)</th>
+            <th>@Html.DisplayNameFor(model => model.Gender)</th>
+            <th>@Html.DisplayNameFor(model => model.AdressP)</th>
+            <th>@Html.DisplayNameFor(model => model.PhoneNumberP)</th>
+            <th>@Html.DisplayNameFor(model => model.EmailAdressP)</th>
+            <th>Detalles</th> 
+            <th>Historial Médico</th> 
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.FirstNameP)</td>
+                <td>@Html.DisplayFor(modelItem => item.LastNameP)</td>
+                <td>@Html.DisplayFor(modelItem => item.DateOfBirth.ToString("dd/MM/yyyy"))</td>
+                <td>@Html.DisplayFor(modelItem => item.Gender)</td>
+                <td>@Html.DisplayFor(modelItem => item.AdressP)</td>
+                <td>@Html.DisplayFor(modelItem => item.PhoneNumberP)</td>
+                <td>@Html.DisplayFor(modelItem => item.EmailAdressP)</td>
+                <td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientDetails.Alergias)
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.MedicalHistoryId)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

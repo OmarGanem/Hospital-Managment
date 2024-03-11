@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="hero-section">
+    <h1 class="display-4">Bienvenido a Hospital Madero</h1>
+    <p>Tu salud es nuestra prioridad. Descubre nuestros servicios.</p>
+    <a class="btn btn-primary" href="@Url.Action("Services", "Home")" role="button">Explorar Servicios</a>
+</div>
+
+<section class="about-section">
+    <h2>Acerca de Nosotros</h2>
+    <p>
+        En Hospital Madero, ofrecemos una amplia gama de servicios médicos para atender las necesidades de nuestra comunidad.
+        Con un equipo de profesionales altamente calificados y tecnología de punta, estamos comprometidos con brindar atención
+        de calidad en un ambiente seguro y acogedor.
+    </p>
+    <a class="btn btn-secondary" href="@Url.Action("About", "Home")" role="button">Leer Más</a>
+</section>
+
+<section class="contact-section">
+    <h2>Contacto</h2>
+    <p>¿Tienes preguntas o necesitas más información? No dudes en contactarnos.</p>
+    <p>Email: contacto@hospitalMadero.com | Teléfono: 55-456-7890</p>
+</section>

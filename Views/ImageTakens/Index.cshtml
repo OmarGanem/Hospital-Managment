@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Hospital.Data.Entities.ImageTaken>
+
+@{
+    ViewData["Title"] = "Índice de Imágenes";
+}
+
+<h1>Índice de Imágenes</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Crear Nueva</a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ImageUrl)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>@Html.DisplayNameFor(model => model.DateHour)</th>
+            <th>@Html.DisplayNameFor(model => model.Paciente)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@Url.Content(item.ImageUrl)" alt="Imagen" style="height:50px;">
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.DateHour)</td>
+                <td>@Html.DisplayFor(modelItem => item.Paciente)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
